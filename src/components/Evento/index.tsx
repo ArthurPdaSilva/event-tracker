@@ -1,21 +1,13 @@
+//src\components\Evento\index.tsx
+
 import React from "react";
 import { IEvento } from "../../interfaces/IEvento";
 import style from "./Evento.module.scss";
 import EventoCheckbox from "./EventoCheckbox";
-import { useSetRecoilState } from "recoil";
-import { listaDeEventosState } from "../../states/atom";
+import useDeletarEvento from "../../states/hooks/useDeletarEvento";
 
-const Evento: React.FC<{
-  evento: IEvento;
-}> = ({ evento }) => {
-  // Outra via:
-  // const [tamanhoDaFonte, setTamanhoDaFonte] = useRecoilState<number>(tamanhoDaFonteState)
-  const setListaDeEventos = useSetRecoilState<IEvento[]>(listaDeEventosState);
-  const excluirEvento = () => {
-    setListaDeEventos((listaAntiga) =>
-      listaAntiga.filter((item) => item.id !== evento.id)
-    );
-  };
+const Evento: React.FC<{ evento: IEvento }> = ({ evento }) => {
+  const excluirEvento = useDeletarEvento();
 
   const estilos = [style.Evento];
 
@@ -31,7 +23,10 @@ const Evento: React.FC<{
           {evento.descricao} - {evento.inicio.toLocaleDateString()}
         </h3>
       </div>
-      <i className="far fa-times-circle fa-2x" onClick={excluirEvento}></i>
+      <i
+        className="far fa-times-circle fa-2x"
+        onClick={() => excluirEvento(evento)}
+      ></i>
     </div>
   );
 };

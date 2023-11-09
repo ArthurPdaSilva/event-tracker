@@ -1,33 +1,32 @@
-import React, { useState } from "react";
+import { Suspense } from "react";
 import style from "./App.module.scss";
 import Card from "./components/Card";
 import Formulario from "./components/Formulario";
 import Calendario from "./components/Calendario";
 import ListaDeEventos from "./components/ListaDeEventos";
 import { RecoilRoot } from "recoil";
+import DebugObserver from "./DebugObsserver";
 
 function App() {
-  const [, setFiltro] = useState<Date | null>();
-
-  const aplicarFiltro = (data: Date | null) => {
-    setFiltro(data);
-  };
   return (
     <RecoilRoot>
-      <div className={style.App}>
-        <div className={style.Coluna}>
-          <Card>
-            <Formulario />
-          </Card>
-          <hr />
-          <Card>
-            <ListaDeEventos aoFiltroAplicado={aplicarFiltro} />
-          </Card>
+      <DebugObserver />
+      <Suspense fallback={<p>Carregando...</p>}>
+        <div className={style.App}>
+          <div className={style.Coluna}>
+            <Card>
+              <Formulario />
+            </Card>
+            <hr />
+            <Card>
+              <ListaDeEventos />
+            </Card>
+          </div>
+          <div className={style.Coluna}>
+            <Calendario />
+          </div>
         </div>
-        <div className={style.Coluna}>
-          <Calendario />
-        </div>
-      </div>
+      </Suspense>
     </RecoilRoot>
   );
 }

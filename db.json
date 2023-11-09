@@ -1,0 +1,35 @@
+{
+    "eventos": [
+        {
+          "descricao": "Estudar React",
+          "inicio": "2023-11-09T09:00:00",
+          "fim": "2022-01-15T13:00:00",
+          "completo": false,
+          "id": 1642342747
+        },
+        {
+          "descricao": "Estudar Recoil",
+          "inicio": "2023-11-09T09:00:00",
+          "fim": "2022-01-16T11:00:00",
+          "completo": false,
+          "id": 1642342959
+        },
+        {
+          "descricao": "Fazer compras no supermercado",
+          "inicio": "2023-11-09T14:30:00",
+          "fim": "2023-11-09T16:00:00",
+          "completo": false,
+          "id": 1642343162
+        },
+        {
+          "descricao": "Reunião de equipe",
+          "inicio": "2023-11-10T10:00:00",
+          "fim": "2023-11-10T12:00:00",
+          "completo": true,
+          "id": 1642343375
+        }
+      ]
+      
+        
+      
+}
