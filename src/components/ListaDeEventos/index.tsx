@@ -2,7 +2,7 @@ import React from "react";
 import Evento from "../Evento";
 import Filtro from "../Filtro";
 import style from "./ListaDeEventos.module.scss";
-import { listaDeEventosState } from "../../state/atom";
+import { listaDeEventosState } from "../../states/atom";
 import { useRecoilValue } from "recoil";
 
 const ListaDeEventos: React.FC<{
